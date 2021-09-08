@@ -19,7 +19,7 @@ public class LegalZoomTest {
 	public WebDriver driver;
 	@BeforeTest
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "/Users/khaledalblwoy/Desktop/applicationsDojo/browserDriver/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/chromedriver");
 		driver =new ChromeDriver();
 		driver.navigate().to("https://www.legalzoom.com/personal/estate-planning/living-trust-pricing.html"); 
 		driver.manage().window().maximize(); 
@@ -39,9 +39,9 @@ public class LegalZoomTest {
 		driver.findElement(By.id("ctl00_cphMainContent_btnContinue2")).click();
 		
 		//Tell us about yourself.
-		driver.findElement(By.name("grantor_first|290240")).sendKeys("Khal");
-		driver.findElement(By.id("grantor_middle")).sendKeys("Hamdan");
-		driver.findElement(By.id("grantor_last")).sendKeys("Alblowy");
+		driver.findElement(By.name("grantor_first|290240")).sendKeys("");
+		driver.findElement(By.id("grantor_middle")).sendKeys("");
+		driver.findElement(By.id("grantor_last")).sendKeys("");
 		WebElement marriedDropDown = driver.findElement(By.cssSelector("#grantor_married_MC"));
 		WebElement childrenDrop = driver.findElement(By.cssSelector("#grantor_children_MC"));
 		Select selectMarried = new Select(marriedDropDown);
@@ -51,8 +51,8 @@ public class LegalZoomTest {
 		driver.findElement(By.id("ctl00_cphMainContent_btnContinue2")).click();
 		
 		//Where do you live?
-		driver.findElement(By.xpath("//input[@id='grantor_address']")).sendKeys("95 scott road");
-		driver.findElement(By.xpath("//input[@id='grantor_city']")).sendKeys("Herston Brisbane City");
+		driver.findElement(By.xpath("//input[@id='grantor_address']")).sendKeys("scott road");
+		driver.findElement(By.xpath("//input[@id='grantor_city']")).sendKeys("City");
 		driver.findElement(By.xpath("//input[@id='grantor_county']")).sendKeys("America");
 		Select stateSelect = new Select(driver.findElement(By.xpath("//select[@id='grantor_state']")));
 		stateSelect.selectByVisibleText("Alaska");
@@ -76,14 +76,14 @@ public class LegalZoomTest {
 	public void giftsC() {
 		driver.findElement(By.id("ctl00_cphMainContent_btnContinue2")).click();
 		driver.findElement(By.cssSelector("#grantor_heir_info_percent_1")).sendKeys("50");
-		driver.findElement(By.cssSelector("#grantor_heir_info_name_1")).sendKeys("Hamdan");
-		driver.findElement(By.cssSelector("#grantor_heir_info_alt_1")).sendKeys("Monirah");
+		driver.findElement(By.cssSelector("#grantor_heir_info_name_1")).sendKeys("");
+		driver.findElement(By.cssSelector("#grantor_heir_info_alt_1")).sendKeys("");
 		driver.switchTo().activeElement().sendKeys(Keys.TAB);
 		driver.switchTo().activeElement().sendKeys(Keys.ENTER);
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='grantor_heir_info_percent_2']"))).sendKeys("50");
-		driver.findElement(By.cssSelector("#grantor_heir_info_name_2")).sendKeys("Monirah");
-		driver.findElement(By.cssSelector("#grantor_heir_info_alt_2")).sendKeys("Hamdan");
+		driver.findElement(By.cssSelector("#grantor_heir_info_name_2")).sendKeys("");
+		driver.findElement(By.cssSelector("#grantor_heir_info_alt_2")).sendKeys("");
 		driver.findElement(By.id("ctl00_cphMainContent_btnContinue2")).click();
 	
 		//Do you want to give any specific and charitable gifts?
@@ -103,8 +103,8 @@ public class LegalZoomTest {
 		//Do you want to appoint a co-trustee?
 		driver.findElement(By.id("ctl00_cphMainContent_btnContinue2")).click();
 		//Who are the successor trustees?
-		driver.findElement(By.cssSelector("#first_successor_trustee")).sendKeys("Tahani Alblowy");
-		driver.findElement(By.cssSelector("#second_successor_trustee")).sendKeys("Abeer Alblowy");
+		driver.findElement(By.cssSelector("#first_successor_trustee")).sendKeys(" ");
+		driver.findElement(By.cssSelector("#second_successor_trustee")).sendKeys(" ");
 		driver.findElement(By.id("ctl00_cphMainContent_btnContinue2")).click();
 		//Do you want to include additional instructions for trustees?
 		driver.findElement(By.id("ctl00_cphMainContent_btnContinue2")).click();
